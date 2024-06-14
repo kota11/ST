@@ -24,14 +24,14 @@ function CourseDetail() {
   return (
     <div className="container mx-auto mt-10 p-4">
       <h1 className="text-3xl font-bold mb-4">{course.name}</h1>
-      <img src={course.image} alt={course.title} className="w-full h-64 object-cover mb-4" />
-      <p>hellooo</p>
+      <img src={course.image} alt={course.title} className="w-64 h-64 object-cover mb-4" />
+      
       <p className="mb-4">{course.category}</p>
       <div className="video-wrapper">
         <iframe
           title="Course Video"
-          width="100%"
-          height="400"
+          width="50%"
+          height="300"
           src={course.url}
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

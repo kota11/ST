@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { addProduct } from "../redux/cartRedux";
 import RecommendedCourses from "../components/RecommendedCourses";
-import VideoPlayer from "../components/VideoPlayer";
+
 import { mobile } from "../responsive";
 
 const Container = styled.div``;

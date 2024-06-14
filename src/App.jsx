@@ -8,7 +8,7 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Checkout from "./pages/Checkout";
 import PaymentSuccess from "./pages/PaymentSuccess";
-import CourseDetail from './components/CourseDetail'; 
+import CourseDetail from './pages/CourseDetail'; 
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -27,7 +27,7 @@ function App() {
         <Route path="/Products" element={<ProductList />} />
         <Route path="/Product/:id" element={<Product/>} />
         <Route path="/Courses" element={<Courses />} />
-        <Route path="/course/:id" component={CourseDetail} /> 
+        <Route path="/course/:id" element={<CourseDetail/>} /> 
         <Route path="/Cart" element={<Cart />} />
         <Route path="/Checkout" element={<Checkout />} />
         <Route path="/paymentsuccess" element={<PaymentSuccess />} />
