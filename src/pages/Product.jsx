@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { addProduct } from "../redux/cartRedux";
 import RecommendedCourses from "../components/RecommendedCourses";
+import VideoPlayer from "../components/VideoPlayer";
 import { mobile } from "../responsive";
 
 const Container = styled.div``;
@@ -123,6 +124,7 @@ const Product = () => {
       setQuantity(quantity + 1);
     }
   };
+  console.log(product);
 
   const handleClick = () => {
     if (!isInCart) {
@@ -153,6 +155,8 @@ const Product = () => {
         </InfoContainer>
       </Wrapper>
       <RecommendedCourses category={product.category} />
+
+      
     </Container>
   );
 };

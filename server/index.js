@@ -8,7 +8,9 @@ import userRoute from "./routes/user.js";
 import productRoute from "./routes/product.js";
 import cartRoute from "./routes/cart.js";
 import orderRoute from "./routes/order.js";
+import paymentRoute from "./routes/payment.js";
 import cors from 'cors';
+import Razorpay from "razorpay" ;
 
 
 config();
@@ -20,14 +22,31 @@ connect(process.env.MONGO_URL)
     });
 /////////////////////////////////////////////////////////
 
+export const instance = new Razorpay({
+    key_id: process.env.RAZORPAY_API_KEY,
+    key_secret: process.env.RAZORPAY_APT_SECRET,
+});
+/////////////////////////////////////////////////////////
+
 
 app.use(cors());    
 app.use(json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
+
+app.use("/api/payment", paymentRoute);
+
+app.get("/api/payment/getkey", (req, res) =>
+  res.status(200).json({ key: process.env.RAZORPAY_API_KEY })
+);
+
+
+
 app.listen(process.env.PORT || 5000, ()=>{
     console.log("Backend server running successfully");
 });

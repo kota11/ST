@@ -8,8 +8,6 @@ const ProductSchema = new Schema(
     categories: { type: Array },
     price: { type: Number, required: true },
     inStock: {type: Boolean, default: true },
-    // category: { type: String },
-    video:{ type: String},
     
   },
   { timestamps: true }

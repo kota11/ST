@@ -36,6 +36,7 @@ function stringToColor(string) {
 
 function ProfileDropdown() {
   const username = useSelector((state) => state.user.currentUser.username);
+  const userid = useSelector((state) => state.user.currentUser._id);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleMenuOpen = (event) => {
@@ -60,8 +61,8 @@ function ProfileDropdown() {
         open={Boolean(anchorEl)}
         onClose={handleMenuClose}
       >
-        <MenuItem onClick={handleMenuClose}>View Profile</MenuItem>
-        <MenuItem onClick={handleMenuClose}>Settings</MenuItem>
+        <Link to={`/Profile/${userid}`}><MenuItem onClick={handleMenuClose}>View Profile</MenuItem></Link>
+        <Link to={`/Settings/${userid}`}><MenuItem onClick={handleMenuClose}>Settings</MenuItem></Link>
         <Link to="/"><MenuItem onClick={handleLogOut}>Logout</MenuItem></Link>
       </Menu>
     </div>

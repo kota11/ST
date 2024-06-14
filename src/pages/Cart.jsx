@@ -5,6 +5,8 @@ import { mobile } from "../responsive";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { incrementProduct, decrementProduct, deleteProduct } from "../redux/cartRedux"; // Import the delete action
+import { Link } from 'react-router-dom';
+
 
 const Container = styled.div`
   max-width: 1280px;
@@ -279,7 +281,7 @@ const Cart = () => {
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
-            <Button>CHECKOUT NOW</Button>
+            <Link to="/Checkout"><Button>CHECKOUT NOW</Button></Link>
           </Summary>
         </Bottom>
       </Wrapper>

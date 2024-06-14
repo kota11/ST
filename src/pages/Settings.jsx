@@ -7,6 +7,7 @@ import { login } from "../redux/apiCalls";
 import { publicRequest } from "../requestMethods";
 
 const Container = styled.div`
+  
   width: 100vw;
   height: 100vh;
   background: linear-gradient(
@@ -18,7 +19,7 @@ const Container = styled.div`
   background-size: cover;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around ;
 `;
 
 const Wrapper = styled.div`
@@ -73,49 +74,67 @@ const Other = styled.a`
 const Register = () => {
   const [username,setUsername] = useState("");
   const [email,setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [notEqual, setNotEqual] = useState(false);
   const { isFetching, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   
 
-  const handleClick = async(e) => {
-    e.preventDefault();
-    if (password===confirmPassword){
-      try {
-        const res = await publicRequest.post("/auth/register", {username,email,password});
-        // login(dispatch, { username, password });
-      } catch (err) {
-        console.log(err);
+//   const handleClick = async(e) => {
+//     e.preventDefault();
+//     if (password===confirmPassword){
+//       try {
+//         const res = await publicRequest.post("/auth/register", {username,email,password});
+//         // login(dispatch, { username, password });
+//       } catch (err) {
+//         console.log(err);
         
-      }
-    }else {
-      setNotEqual(true);
-    }
-    login(dispatch, { username, password });
-  };
+//       }
+//     }else {
+//       setNotEqual(true);
+//     }
+//     login(dispatch, { username, password });
+//   };
 
 
 
   return (
     <Container>
       <Wrapper>
-        <Title>CREATE AN ACCOUNT</Title>
+        <Title>UPDATE DETAILS</Title>
         <Form>
-          
+          <Input placeholder="first name"/> 
+          <Input placeholder="last name"/>
           <Input placeholder="username" onChange={(e) => setUsername(e.target.value)}/>
           <Input placeholder="email" onChange={(e) => setEmail(e.target.value)}/>
-          <Input placeholder="password" type="password" onChange={(e) => setPassword(e.target.value)}/>
-          <Input placeholder="confirm password" type="password" onChange={(e) => setConfirmPassword(e.target.value)}/>
+          <Input placeholder="phone no."/>
+          
           <Agreement>
-            By creating an account, I consent to the processing of my personal
-            data in accordance with the <b>PRIVACY POLICY</b>
+            Update the details you want to change otherwise leave it blank. Creating new password requires <b>current password</b>
           </Agreement>
-          <Button onClick={handleClick} >CREATE</Button>
+          <Button  >UPDATE DETAILS</Button>
           {/* {(notEqual&&!error) && <Error>Password does not match the confirm password</Error>} */}
           {(error) && <Error>Something went wrong...</Error>}
-          <Other><Link to="/Login">ALREADY HAVE AN ACCOUNT?</Link></Other>
+          
+        </Form>
+      </Wrapper>
+
+      <Wrapper>
+        <Title>UPDATE PASSWORD</Title>
+        <Form>
+          
+          <Input placeholder="current password" type="password" onChange={(e) => setCurrentPassword(e.target.value)}/>
+          <Input placeholder="new password" type="password" onChange={(e) => setNewPassword(e.target.value)}/>
+          <Input placeholder="confirm password" type="password" onChange={(e) => setConfirmPassword(e.target.value)}/>
+          <Agreement>
+            Update the details you want to change otherwise leave it blank. Creating new password requires <b>current password</b>
+          </Agreement>
+          <Button  >UPDATE PASSWORD</Button>
+          {/* {(notEqual&&!error) && <Error>Password does not match the confirm password</Error>} */}
+          {(error) && <Error>Something went wrong...</Error>}
+          
         </Form>
       </Wrapper>
     </Container>
