@@ -8,6 +8,7 @@ import userRoute from "./routes/user.js";
 import productRoute from "./routes/product.js";
 import cartRoute from "./routes/cart.js";
 import orderRoute from "./routes/order.js";
+import courseRoute from "./routes/course.js";
 import paymentRoute from "./routes/payment.js";
 import cors from 'cors';
 import Razorpay from "razorpay" ;
@@ -36,6 +37,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
+app.use("/api/courses",courseRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 

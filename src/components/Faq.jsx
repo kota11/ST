@@ -13,8 +13,9 @@ function Faq() {
     <div style={{ padding: "20px 0px 20px", display: "flex", flexDirection:"column", alignItems:"center"}}>
       <p style={{ textAlign: "center", fontSize: "50px", fontWeight: "bold"}}>
         Frequently Asked Questions
+        
       </p>
-      <div style={{margin: "0% 25% 0%"}}>
+      <div style={{margin: "0% 25% 0%" ,  paddingTop: "20px" }}>
         {questions.map((qItem, index) => (
           <FaqCard
             key={qItem.key}

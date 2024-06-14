@@ -7,9 +7,10 @@ import { mobile } from "../responsive";
 
 
 const FilterText = styled.span`
-  font-size: 20px;
+   font-size: 20px;
   font-weight: 600;
   margin-right: 10px;
+  margin-bottom: 10px;  // Add margin-bottom to create space
   ${mobile({ marginRight: "0px" })}
 `;
 
@@ -37,16 +38,16 @@ const LeftFilter = styled.div`
 `;
 
 const CenterFilter = styled.div`
-  flex: 2;
+flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
+  justify-content: flex-end;
   margin-bottom: 10px;
 `;
 
 const Select = styled.select`
   padding: 10px;
+  margin-right: 20px;
 `;
 
 const Option = styled.option``;
@@ -54,6 +55,7 @@ const Option = styled.option``;
 const SearchInputContainer = styled.div`
   position: relative;
   width: 100%;
+ 
 `;
 
 const SearchInput = styled.input`
@@ -131,7 +133,8 @@ const Products = () => {
             <Option value="battery">Category 1</Option>
             <Option value="solar">Category 2</Option>
             <Option value="6 yrs">Category 3</Option>
-          </Select>
+          </Select> 
+
           <FilterText>Age:</FilterText>
           <Select name="category" onChange={handleFilterChange}>
             <Option value="">All</Option>
@@ -140,6 +143,7 @@ const Products = () => {
             <Option value="15 yrs">Category 3</Option>
           </Select>
         </LeftFilter>
+        <div style={{ flex: 1 }} /> 
         <CenterFilter>
           <SearchInputContainer>
             <SearchIconWrapper>

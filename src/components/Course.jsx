@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import Cards from './Cards';
 
 function Course() {
@@ -8,13 +9,16 @@ function Course() {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   useEffect(() => {
-    fetch('/list.json')
-      .then((response) => response.json())
-      .then((data) => {
-        setList(data);
-        setFilteredCourses(data);
-      })
-      .catch((error) => console.error('Error fetching the JSON data:', error));
+    const getCourses = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/courses");
+        setList(res.data); // Set courses from the server response
+        setFilteredCourses(res.data); // Initially display all courses
+      } catch (err) {
+        console.error('Error fetching the courses:', err);
+      }
+    };
+    getCourses();
   }, []);
 
   const handleCategoryChange = (category) => {
@@ -33,7 +37,7 @@ function Course() {
         <div className="mt-28 items-center justify-center text-center">
           <h1 className="text-2xl md:text-4xl">
             We're delighted to have you{" "}
-            <span className="text-blue-500"> Here! :)</span>
+            <span className="text-blue-500">Here! :)</span>
           </h1>
           <p className="mt-12">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro,
