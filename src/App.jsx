@@ -12,6 +12,7 @@ import CourseDetail from './pages/CourseDetail';
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Profile from "./components/Profile";
 import Settings from "./pages/Settings";
 import { Routes, Route, Navigate} from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -36,6 +37,7 @@ function App() {
         <Route path="/Login" element={user ? <Navigate to="/" /> : <Login />} />
         <Route path="/Settings/:id" element={<Settings/>} />
         <Route path="/Register" element ={user ? <Navigate to="/" /> : <Register />}/>
+        <Route path="/Profile/:activepage" element={<Profile />}></Route>
       </Routes>
       <Footer/>
     </div>

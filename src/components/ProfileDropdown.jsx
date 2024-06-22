@@ -61,7 +61,8 @@ function ProfileDropdown() {
         open={Boolean(anchorEl)}
         onClose={handleMenuClose}
       >
-        <Link to={`/Profile/${userid}`}><MenuItem onClick={handleMenuClose}>View Profile</MenuItem></Link>
+        {/* <Link to={`/Profile/${userid}`}><MenuItem onClick={handleMenuClose}>View Profile</MenuItem></Link> */}
+        <Link to={`/Profile/accountsettings`}><MenuItem onClick={handleMenuClose}>View Profile</MenuItem></Link>
         <Link to={`/Settings/${userid}`}><MenuItem onClick={handleMenuClose}>Settings</MenuItem></Link>
         <Link to="/"><MenuItem onClick={handleLogOut}>Logout</MenuItem></Link>
       </Menu>

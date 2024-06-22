@@ -11,7 +11,7 @@ function Banner() {
           <div className="space-y-8">
             <h1 className="text-2xl md:text-4xl font-bold">
               Hello, welcomes here to learn something{" "}
-              <span className="text-pink-500">new everyday!!!</span>
+              <span className="text-blue-500">new everyday!!!</span>
             </h1>
             <p className="text-sm md:text-xl">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor,
@@ -34,7 +34,7 @@ function Banner() {
           
             
           <Link to="/Courses">
-            <button className="btn mt-6 btn-secondary">Get Started</button>
+            <button className="btn mt-6 btn-primary">Get Started</button>
           </Link>
         </div>
         <div className=" order-1 w-full mt-20 md:w-1/2">
